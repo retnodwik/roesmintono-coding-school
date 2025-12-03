@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roesmintono Coding School - Belajar Coding dari Nol</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 28px;
+            color: #e74c3c;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo-text span {
+            color: #e74c3c;
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: #ecf0f1;
+            font-style: italic;
+            margin-top: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #e74c3c;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #e74c3c;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #ecf0f1;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            border: 2px solid #e74c3c;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Story Section */
+        .story {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: #e74c3c;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .story-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .story-text {
+            flex: 1;
+        }
+
+        .story-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #e74c3c;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .story-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* YouTube Playlist Section */
+        .playlists {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .playlist-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .playlist-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .playlist-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .playlist-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .playlist-icon {
+            font-size: 30px;
+            color: #e74c3c;
+        }
+
+        .playlist-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .playlist-channel {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+            margin-top: 5px;
+        }
+
+        .playlist-content {
+            padding: 20px;
+        }
+
+        .video-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .video-item:last-child {
+            border-bottom: none;
+        }
+
+        .video-icon {
+            color: #e74c3c;
+            margin-right: 10px;
+            margin-top: 3px;
+            font-size: 14px;
+        }
+
+        .video-title {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .video-duration {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+        }
+
+        .playlist-link {
+            display: block;
+            text-align: center;
+            background-color: #e74c3c;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .playlist-link:hover {
+            background-color: #c0392b;
+        }
+
+        /* Code Example Section */
+        .code-examples {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .code-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .code-card {
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-header {
+            background-color: #1a252f;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .code-language {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #e74c3c;
+        }
+
+        .code-title {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+        }
+
+        .code-content {
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        .code-line {
+            margin-bottom: 5px;
+        }
+
+        .code-line-number {
+            color: #7f8c8d;
+            margin-right: 15px;
+            display: inline-block;
+            width: 30px;
+            text-align: right;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .team-card {
+            text-align: center;
+            background-color: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #2c3e50;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+        }
+
+        .team-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .team-role {
+            color: #e74c3c;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .team-experience {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .team-specialization {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #e74c3c;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-details i {
+            margin-right: 15px;
+            font-size: 20px;
+            color: #e74c3c;
+            width: 30px;
+        }
+
+        .contact-details a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-details a:hover {
+            color: #e74c3c;
+            text-decoration: underline;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 16px;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-form button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo span {
+            color: #e74c3c;
+        }
+
+        .footer-tagline {
+            font-style: italic;
+            color: #bdc3c7;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #e74c3c;
+            transform: translateY(-5px);
+        }
+
+        .footer-links h3,
+        .footer-newsletter h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #e74c3c;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #e74c3c;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #95a5a6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .story-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                width: 100%;
+                display: none;
+                margin-top: 20px;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .playlist-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+
+            .code-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-laptop-code"></i></div>
+                <div>
+                    <div class="logo-text">Roesmintono<span>Coding</span></div>
+                    <div class="tagline">"Belajar Coding Lebih Mudah"</div>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#story">Cerita Kami</a></li>
+                    <li><a href="#playlists">Playlist YouTube</a></li>
+                    <li><a href="#code">Contoh Kode</a></li>
+                    <li><a href="#team">Tim Pengajar</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Roesmintono Coding School</h1>
+            <p>Bermula dari pengalaman pribadi Founder yang kerap membantu teman-teman non-IT untuk beralih karir ke dunia tech. Kini kami hadir sebagai platform belajar coding online yang bisa diakses lewat YouTube.</p>
+            <a href="#playlists" class="cta-button">Lihat Playlist YouTube</a>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story" id="story">
+        <div class="container">
+            <h2 class="section-title">Cerita Kami</h2>
+            <div class="story-content">
+                <div class="story-text">
+                    <p>Roesmintono Coding School bermula dari pengalaman pribadi Founder yang selama lebih dari 40 tahun membantu teman-teman non-IT untuk beralih karir ke dunia teknologi. Melihat betapa besarnya kebutuhan akan pendidikan coding yang mudah diakses dan dipahami, Roesmintono Coding School resmi didirikan.</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Perjalanan Kami:</strong> Kami memulai dengan kelas offline kecil-kecilan di Bogor, membantu para profesional dari berbagai latar belakang untuk memahami dasar-dasar pemrograman. Dengan sabar dan pendekatan yang terstruktur, kami membimbing mereka langkah demi langkah.</p>
+                    </div>
+                    
+                    <p>Seiring waktu, permintaan semakin besar dan datang dari berbagai daerah. Melihat peluang ini, kami memutuskan untuk berkembang menjadi platform belajar online yang bisa diakses oleh siapa saja, di mana saja. Kini, Roesmintono Coding School telah menjadi channel YouTube edukatif dengan ratusan video tutorial pemrograman.</p>
+                    
+                    <p>Filosofi kami sederhana: <strong>"Belajar coding harus mudah dan menyenangkan"</strong>. Kami yakin bahwa siapa pun dapat belajar coding dengan metode pengajaran yang tepat, penjelasan yang jelas, dan contoh yang relevan dengan dunia nyata.</p>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Kelas coding">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Playlists Section -->
+    <section class="playlists" id="playlists">
+        <div class="container">
+            <h2 class="section-title">Playlist YouTube Kami</h2>
+            <div class="playlist-container">
+                <!-- C++ Playlist -->
+                <div class="playlist-card">
+                    <div class="playlist-header">
+                        <div class="playlist-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div>
+                            <div class="playlist-title">C++ level 1 PROGRAM CODING</div>
+                            <div class="playlist-channel">ROESMINTONO.2020 · Playlist</div>
+                        </div>
+                    </div>
+                    <div class="playlist-content">
+                        <div class="video-item">
+                            <div class="video-icon"><i class="fas fa-play-circle"></i></div>
+                            <div>
+                                <div class="video-title">PROGRAM04A Cetak tulisan "Jakarta" sebanyak 10x spasi 8 HORIZONTAL</div>
+                                <div class="video-duration">2:41</div>
+                            </div>
+                        </div>
+                        <div class="video-item">
+                            <div class="video-icon"><i class="fas fa-play-circle"></i></div>
+                            <div>
+                                <div class="video-title">PROGRAM05C Cetak INDONESIA 10 x HORIZONTAL pindah baris dan cetak 4 s/d 25 beda 3 berurutan</div>
+                                <div class="video-duration">2:57</div>
+                            </div>
+                        </div>
+                        <div class="video-item">
+                            <div class="video-icon"><i class="fas fa-play-circle"></i></div>
+                            <div>
+                                <div class="video-title">PROGRAM01N Cetak C++ sebanyak 10 x HORIZONTAL mulai kolom 8</div>
+                                <div class="video-duration">2:08</div>
+                            </div>
+                        </div>
+                        <div class="video-item">
+                            <div class="video-icon"><i class="fas fa-play-circle"></i></div>
+                            <div>
+                                <div class="video-title">PROGRAM01B Mencetak angka 1 sampai dengan 10 vertikal pada kolom 8</div>
+                                <div class="video-duration">2:47</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://www.youtube.com/@roesmintono.2020" target="_blank" class="playlist-link">View full playlist</a>
+                </div>
+                
+                <!-- Java Playlist -->
+                <div class="playlist-card">
+                    <div class="playlist-header">
+                        <div class="playlist-icon">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <div>
+                            <div class="playlist-title">WOW !!! 3 menit JAVA programming</div>
+                            <div class="playlist-channel">ROESMINTONO.2020 · Playlist</div>
+                        </div>
+                    </div>
+                    <div class="playlist-content">
+                        <div class="video-item">
+                            <div class="video-icon"><i class="fas fa-play-circle"></i></div>
+                            <div>
+                                <div class="video-title">JAVA01K Cetak angka 1 s/d angka 10 HORIZONTAL dengan jarak 3 spasi</div>
+                                <div class="video-duration">1:03</div>
+                            </div>
+                        </div>
+                        <div class="video-item">
+                            <div class="video-icon"><i class="fas fa-play-circle"></i></div>
+                            <div>
+                                <div class="video-title">JAVA010 Cetak tulisan JAVA sebanyak 10 x HORIZONTAL dengan jarak 3 kolom</div>
+                                <div class="video-duration">1:07</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://www.youtube.com/@roesmintono.2020" target="_blank" class="playlist-link">View full playlist</a>
+                </div>
+                
+                <!-- Python Playlist -->
+                <div class="playlist-card">
+                    <div class="playlist-header">
+                        <div class="playlist-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div>
+                            <div class="playlist-title">WOW !!! 3 menit PYTHON programming</div>
+                            <div class="playlist-channel">ROESMINTONO.2020 · Playlist</div>
+                        </div>
+                    </div>
+                    <div class="playlist-content">
+                        <div class="video-item">
+                            <div class="video-icon"><i class="fas fa-play-circle"></i></div>
+                            <div>
+                                <div class="video-title">PYTHON010 Cetak PYTHON sebanyak 10 x HORIZONTAL dengan jarak 3 kolom</div>
+                                <div class="video-duration">1:49</div>
+                            </div>
+                        </div>
+                        <div class="video-item">
+                            <div class="video-icon"><i class="fas fa-play-circle"></i></div>
+                            <div>
+                                <div class="video-title">PYTHON02A Cetak angka 1 s/d 10 dengan beda 3 HORIZONTAL</div>
+                                <div class="video-duration">2:49</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://www.youtube.com/@roesmintono.2020" target="_blank" class="playlist-link">View full playlist</a>
+                </div>
+                
+                <!-- Kotlin & JavaScript Playlist -->
+                <div class="playlist-card">
+                    <div class="playlist-header">
+                        <div class="playlist-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div>
+                            <div class="playlist-title">KOTLIN & JAVASCRIPT level 1</div>
+                            <div class="playlist-channel">ROESMINTONO.2020 · Playlist</div>
+                        </div>
+                    </div>
+                    <div class="playlist-content">
+                        <div class="video-item">
+                            <div class="video-icon"><i class="fas fa-play-circle"></i></div>
+                            <div>
+                                <div class="video-title">KOTLIN level 1 PROGRAM CODING - Teknik Flowcharting 1D</div>
+                                <div class="video-duration">6:11</div>
+                            </div>
+                        </div>
+                        <div class="video-item">
+                            <div class="video-icon"><i class="fas fa-play-circle"></i></div>
+                            <div>
+                                <div class="video-title">JAVASCRIPT level 1 PROGRAM CODING - PENDAHULUAN 2</div>
+                                <div class="video-duration">22:11</div>
+                            </div>
+                        </div>
+                        <div class="video-item">
+                            <div class="video-icon"><i class="fas fa-play-circle"></i></div>
+                            <div>
+                                <div class="video-title">WOW !!! 3 menit C++ programming</div>
+                                <div class="video-duration">Playlist dengan 24 video</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://www.youtube.com/@roesmintono.2020" target="_blank" class="playlist-link">View full playlist</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Examples Section -->
+    <section class="code-examples" id="code">
+        <div class="container">
+            <h2 class="section-title">Contoh Kode Program</h2>
+            <div class="code-container">
+                <!-- BASIC Code Example -->
+                <div class="code-card">
+                    <div class="code-header">
+                        <div class="code-language">BASIC</div>
+                        <div class="code-title">Program Listing (penulisan program BASICA)</div>
+                    </div>
+                    <div class="code-content">
+                        <div class="code-line"><span class="code-line-number">10</span> CLS</div>
+                        <div class="code-line"><span class="code-line-number">15</span> PRINT "PROG001"</div>
+                        <div class="code-line"><span class="code-line-number">20</span> X = 0</div>
+                        <div class="code-line"><span class="code-line-number">30</span> X = X + 1</div>
+                        <div class="code-line"><span class="code-line-number">40</span> IF X>100 THEN 60</div>
+                        <div class="code-line"><span class="code-line-number">50</span> PRINT X;</div>
+                        <div class="code-line"><span class="code-line-number">55</span> GOTO 30</div>
+                        <div class="code-line"><span class="code-line-number">60</span> END</div>
+                    </div>
+                </div>
+                
+                <!-- Flowchart Explanation -->
+                <div class="code-card">
+                    <div class="code-header">
+                        <div class="code-language">FLOWCHART</div>
+                        <div class="code-title">Diagram Alur Program</div>
+                    </div>
+                    <div class="code-content">
+                        <div class="code-line"><span class="code-line-number">1</span> START</div>
+                        <div class="code-line"><span class="code-line-number">2</span>   ↓</div>
+                        <div class="code-line"><span class="code-line-number">3</span> PRINT "PROG001"</div>
+                        <div class="code-line"><span class="code-line-number">4</span>   ↓</div>
+                        <div class="code-line"><span class="code-line-number">5</span> X = 0</div>
+                        <div class="code-line"><span class="code-line-number">6</span>   ↓</div>
+                        <div class="code-line"><span class="code-line-number">7</span> X = X + 1</div>
+                        <div class="code-line"><span class="code-line-number">8</span>   ↓</div>
+                        <div class="code-line"><span class="code-line-number">9</span> X > 100 ?</div>
+                        <div class="code-line"><span class="code-line-number">10</span>   ├─ NO → PRINT X → GOTO line 7</div>
+                        <div class="code-line"><span class="code-line-number">11</span>   └─ YES → END</div>
+                    </div>
+                </div>
+                
+                <!-- C++ Exercises -->
+                <div class="code-card">
+                    <div class="code-header">
+                        <div class="code-language">C++</div>
+                        <div class="code-title">Latihan Program</div>
+                    </div>
+                    <div class="code-content">
+                        <div class="code-line"><span class="code-line-number">1</span> // Soul nounor 2</div>
+                        <div class="code-line"><span class="code-line-number">2</span> SOM_020_ Cetak angka 1 s/d 10 dengan beda 3 HORIZONTAL</div>
+                        <div class="code-line"><span class="code-line-number">3</span> SOM_020_ Cetak angka 1 s/d 10 dengan beda 3 dan spasi 8 HORIZONTAL</div>
+                        <div class="code-line"><span class="code-line-number">4</span> SOM_020_ Cetak C++ 10 x dengan beda 3</div>
+                        <div class="code-line"><span class="code-line-number">5</span> SOM_020_ Cetak C++ 10 X dengan beda 3 dan spasi 8</div>
+                        <div class="code-line"><span class="code-line-number">6</span> </div>
+                        <div class="code-line"><span class="code-line-number">7</span> // Contoh output program:</div>
+                        <div class="code-line"><span class="code-line-number">8</span> // 1   4   7   10</div>
+                        <div class="code-line"><span class="code-line-number">9</span> // C++   C++   C++   C++</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <h2 class="section-title">Tim Pengajar</h2>
+            <div class="team-container">
+                <div class="team-card">
+                    <div class="team-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="team-name">Roesmintono</h3>
+                    <p class="team-role">Founder & Lead Instructor</p>
+                    <div class="team-experience">
+                        <p><strong>Pengalaman:</strong> Lebih dari 40 tahun sebagai pengajar programmer</p>
+                    </div>
+                    <p class="team-specialization">Spesialisasi: Basic, C++, Python, Java, Kotlin, JavaScript</p>
+                    <p style="margin-top: 15px;">Dengan pengalaman mengajar selama lebih dari 4 dekade, Pak Roesmintono telah membantu ribuan orang memahami dunia pemrograman. Pendekatannya yang sabar dan penjelasan yang jelas membuat kompleksitas coding menjadi mudah dipahami.</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="team-name">Retno Dwi Kartikarini</h3>
+                    <p class="team-role">Pengajar & Admin</p>
+                    <div class="team-experience">
+                        <p><strong>Pendekatan:</strong> Sabar dan terstruktur</p>
+                    </div>
+                    <p class="team-specialization">Spesialisasi: Basic, Python</p>
+                    <p style="margin-top: 15px;">Ibu Retno dikenal dengan pendekatan mengajar yang sangat sabar dan terstruktur. Beliau khusus membantu pemula yang benar-benar mulai dari nol dalam memahami konsep dasar pemrograman. Selain mengajar, beliau juga menangani administrasi sekolah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Roesmintono Coding School</h3>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Belajar Coding Lebih Mudah"</p>
+                    
+                    <ul class="contact-details">
+                        <li><i class="fas fa-map-marker-alt"></i> 
+                            <span>Griya Soka 2 Blok W no 12 Sukaraja, Bogor</span>
+                        </li>
+                        <li><i class="fas fa-phone"></i> 
+                            <a href="tel:+6285210449336">+62 852 1044 9336</a> (Telepon/WA)
+                        </li>
+                        <li><i class="fas fa-envelope"></i> 
+                            <a href="mailto:retnodwika48@gmail.com">retnodwika48@gmail.com</a>
+                        </li>
+                        <li><i class="fab fa-youtube"></i> 
+                            <a href="https://www.youtube.com/@roesmintono.2020" target="_blank">roesmintono.2020</a>
+                        </li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 30px;">Jam Operasional</h3>
+                    <p>Senin - Jumat: 08:00 - 17:00 WIB</p>
+                    <p>Sabtu: 09:00 - 15:00 WIB</p>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Kirim Pertanyaan</h3>
+                    <form id="contactForm">
+                        <input type="text" placeholder="Nama Lengkap" required>
+                        <input type="email" placeholder="Email" required>
+                        <input type="tel" placeholder="Nomor Telepon">
+                        <select style="width: 100%; padding: 15px; margin-bottom: 20px; border-radius: 5px; border: none; background-color: rgba(255, 255, 255, 0.1); color: white; font-size: 16px;">
+                            <option value="" disabled selected>Pilih Kursus yang Diminati</option>
+                            <option value="basic">Pemrograman BASIC</option>
+                            <option value="java">Pemrograman Java</option>
+                            <option value="cpp">Pemrograman C++</option>
+                            <option value="python">Pemrograman Python</option>
+                            <option value="kotlin">Pemrograman Kotlin</option>
+                            <option value="javascript">Pemrograman JavaScript</option>
+                        </select>
+                        <textarea rows="5" placeholder="Pesan Anda" required></textarea>
+                        <button type="submit">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">Roesmintono<span>Coding</span></div>
+                    <p class="footer-tagline">"Belajar Coding Lebih Mudah"</p>
+                    <p>Platform belajar pemrograman online dan offline dengan pengalaman mengajar lebih dari 40 tahun. Fokus pada bahasa BASIC, Java, C++, Python, Kotlin, dan JavaScript.</p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="https://www.youtube.com/@roesmintono.2020" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/6285210449336" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:retnodwika48@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Navigasi</h3>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#story">Cerita Kami</a></li>
+                        <li><a href="#playlists">Playlist YouTube</a></li>
+                        <li><a href="#code">Contoh Kode</a></li>
+                        <li><a href="#team">Tim Pengajar</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Playlist YouTube</h3>
+                    <ul>
+                        <li><a href="#playlists">C++ Programming</a></li>
+                        <li><a href="#playlists">Java Programming</a></li>
+                        <li><a href="#playlists">Python Programming</a></li>
+                        <li><a href="#playlists">Kotlin & JavaScript</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Roesmintono Coding School. Semua hak dilindungi.</p>
+                <p>Website dibuat dengan ❤️ untuk membantu siapa saja belajar coding dari nol</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (mainNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        const icon = mobileMenuBtn.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission handling
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih atas pesan Anda! Kami akan menghubungi Anda dalam waktu 1x24 jam melalui WhatsApp atau email.');
+            this.reset();
+        });
+        
+        // YouTube channel link
+        const youtubeLinks = document.querySelectorAll('a[href="https://www.youtube.com/@roesmintono.2020"]');
+        youtubeLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (!this.getAttribute('target')) {
+                    e.preventDefault();
+                    window.open('https://www.youtube.com/@roesmintono.2020', '_blank');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
